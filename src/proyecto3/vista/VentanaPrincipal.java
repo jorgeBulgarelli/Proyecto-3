@@ -417,7 +417,6 @@ public class VentanaPrincipal extends JFrame {
         titulo.setFont(new Font("SansSerif", Font.BOLD, 16));
         panel.add(titulo, BorderLayout.NORTH);
 
-        panelArbol.setPreferredSize(new Dimension(2000, 1500));
         JScrollPane scroll = new JScrollPane(panelArbol);
         scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);

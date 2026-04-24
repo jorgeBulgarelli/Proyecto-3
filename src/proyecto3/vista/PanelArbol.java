@@ -2,12 +2,13 @@ package proyecto3.vista;
 
 import proyecto3.modelo.Nodo;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import javax.swing.JPanel;
 
 /**
@@ -25,17 +26,18 @@ public class PanelArbol extends JPanel {
     public PanelArbol() {
         this.raiz = null;
         setBackground(Color.WHITE);
+        // Redibujar automáticamente cuando el panel cambia de tamaño
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                repaint();
+            }
+        });
     }
 
     /** Actualiza la raíz que se dibujará. Llamar repaint() después. */
     public void setRaiz(Nodo raiz) {
         this.raiz = raiz;
-    }
-
-    @Override
-    public Dimension getPreferredSize() {
-        // Tamaño grande para habilitar scroll en árboles profundos
-        return new Dimension(2000, 1500);
     }
 
     @Override
